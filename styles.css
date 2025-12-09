@@ -1,0 +1,23 @@
+body {
+  box-sizing: border-box;
+  background-color: rgb(44, 44, 44);
+  max-width: 1004px;
+  padding-inline: 10px;
+  margin-inline: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.generate-button {
+  margin-top: 1rem;
+}
+
+.canvas {
+  background-color: #fff;
+  border: 1px solid black;
+}
