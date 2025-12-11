@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -12,8 +12,13 @@
 <body>
   <main class="content">
     <div class="controls">
-      <button class="controls__generate-button generate-button" type="button"
-        data-js-generate-button>Сгенерировать</button>
+      <form class="controls__form">
+        <select class="controls__form-select palette__select" name="palette" id="" data-js-palette-select>
+          <option value="" class="palette__option" selected disabled>-- Выберите палитру цветов --</option>
+        </select>
+        <button class="controls__generate-button generate-button" type="submit"
+          data-js-generate-button>Сгенерировать</button>
+      </form>
     </div>
     <canvas width="150" height="150" class="canvas" data-js-canvas></canvas>
   </main>
