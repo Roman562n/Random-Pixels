@@ -4,19 +4,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random color</title>
+  <title>Random Pixels</title>
+
+  <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/styles.css">
   <script src="/main.js" defer></script>
 </head>
 
-<body>
+<body class="container">
   <main class="content">
+
+    <div class="customize-menu" data-js-customize-menu>
+      <h2 class="cusmomize-menu__title">Создание палитры</h2>
+      <form class="customize-menu__form">
+
+        <div class="customize-menu__form-select color-select">
+
+          <div class="color-select__inputs" data-js-color-select-inputs>
+            <input class="color-select__input" type="color">
+          </div>
+
+          <button class="color-select__add-button button" type="button" title="Добавить цвет"
+            data-js-color-select-add-button>+</button>
+        </div>
+
+        <div class="customize-menu__form-buttons">
+          <button class="customize-menu__cancel-button button" type="button"
+            data-js-customize-menu-cancel-button>Отмена</button>
+          <button class="customize-menu__save-button button" type="submit"
+            data-js-customize-menu-save-button>Сохранить</button>
+        </div>
+      </form>
+    </div>
+
+
     <div class="controls">
       <form class="controls__form">
-        <select class="controls__form-select palette__select" name="palette" id="" data-js-palette-select>
+        <select class="controls__form-select palette__select input" name="palette" id="" data-js-palette-select>
           <option value="" class="palette__option" selected disabled>-- Выберите палитру цветов --</option>
         </select>
-        <button class="controls__generate-button generate-button" type="submit"
+        <div class="palette__row">
+          <div class="palette__resolution">
+            <label for="resolution-1">Разрешение:</label>
+            <input type="number" class="palette__resolution-input input" id="resolution-1" value="16" data-js-palette-resolution-input>
+            <span>x</span>
+            <input type="number" class="palette__resolution-input input" value="16" data-js-palette-resolution-input>
+          </div>
+          <label for="pixel-size">Размер пикселя:</label>
+          <input type="number" class="palette__pixel-size input" id="pixel-size" value="20" data-js-palette-resolution-pixel-size>
+        </div>
+        <button class="controls__generate-button generate-button button" type="submit"
           data-js-generate-button>Сгенерировать</button>
       </form>
     </div>

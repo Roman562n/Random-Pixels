@@ -1,20 +1,103 @@
-body {
-  box-sizing: border-box;
-  background-color: rgb(44, 44, 44);
-  max-width: 1004px;
-  padding-inline: 10px;
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+:root {
+  --container-width: 1024px;
+  --container-padding-x: 10px;
+
+  --color-light: #ffffff;
+  --color-dark: #000000;
+
+  --border-2: 2px solid var(--color-dark);
+  --border-4: 4px solid var(--color-dark);
+
+  --transition-duration: 0.2s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + 2 * var(--container-padding-x));
+  padding-inline: var(--container-padding-x);
   margin-inline: auto;
 }
 
+body {
+  font-family: "DotGothic16";
+  font-size: 1rem;
+  background-color: rgb(44, 44, 44);
+}
+
+.button {
+  height: 1.875rem;
+  border: var(--border-2);
+  background-color: var(--color-light);
+  transition-duration: var(--transition-duration);
+}
+
+.button:hover {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.input {
+  border: var(--border-2);
+  background-color: var(--color-light);
+  height: 1.875rem;
+}
+
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-items: center;
+  row-gap: 1rem;
+  margin-block: 30px;
+}
+
+.customize-menu {
+  display: none;
+  position: absolute;
+  top: 115px;
+  background-color: var(--color-light);
+  border: var(--border-4);
+  padding: 25px 50px;
+}
+
+.customize-menu.is-active {
+  display: grid;
   row-gap: 1rem;
 }
 
-.generate-button {
-  margin-top: 1rem;
+.cusmomize-menu__title {
+  text-align: center;
+}
+
+.customize-menu__form {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.color-select {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.color-select__inputs {
+  display: contents;
+}
+
+.color-select__input {
+  height: 1.875rem;
+  cursor: pointer;
+  border: var(--border-2);
+}
+
+.color-select__add-button {
+  width: 50px;
+}
+
+.controls__form {
+  display: grid;
+  gap: 1rem;
 }
 
 .canvas {

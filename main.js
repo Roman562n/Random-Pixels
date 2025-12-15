@@ -1,6 +1,10 @@
 const canvasElemant = document.querySelector('[data-js-canvas]')
 const generateButtonElement = document.querySelector('[data-js-generate-button]')
 const paletteSelectElement = document.querySelector('[data-js-palette-select]')
+const customizeMenuElement = document.querySelector('[data-js-customize-menu]')
+const colorSelectElement = customizeMenuElement.querySelector('[data-js-color-select-inputs]')
+const colorAddButtonElement = customizeMenuElement.querySelector('[data-js-color-select-add-button]')
+const customizeMenuCancelButtonElement = customizeMenuElement.querySelector('[data-js-customize-menu-cancel-button]')
 
 const ctx = canvasElemant.getContext('2d')
 const imageSize = [16, 16]
@@ -34,7 +38,6 @@ const findPalette = (palette) => {
 const generateImage = () => {
   ctx.clearRect(0, 0, canvasElemant.width, canvasElemant.height)
 
-  console.log(palettes.find(findPalette))
   const findedPalette = palettes.find(findPalette)
 
   for (let i = 0; i < imageSize[0]; i++) {
@@ -71,9 +74,20 @@ generateButtonElement.addEventListener('click', (event) => {
   }
 })
 
+paletteSelectElement.addEventListener('change', (event) => {
+  if (event.target.value === 'custom') {
+    customizeMenuElement.classList.add('is-active')
+  }
+})
 
+colorAddButtonElement.addEventListener('click', () => {
+  const newColorInput = `<input class="color-select__input" type="color">`
+  colorSelectElement.insertAdjacentHTML("beforeend", newColorInput)
+})
 
-
+customizeMenuCancelButtonElement.addEventListener('click', () => {
+  customizeMenuElement.classList.remove('is-active')
+})
 
 // colorSelectElement.addEventListener('change', (event) => {
 //   const hex = event.target.value 
