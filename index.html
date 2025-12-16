@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Pixels</title>
 
-  <link rel="stylesheet" href="/normalize.css">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link rel="stylesheet" href="/styles/styles.css">
   <script src="/main.js" defer></script>
 </head>
 
@@ -46,12 +46,15 @@
         <div class="palette__row">
           <div class="palette__resolution">
             <label for="resolution-1">Разрешение:</label>
-            <input type="number" class="palette__resolution-input input" id="resolution-1" value="16" data-js-palette-resolution-input>
+            <input type="number" class="palette__resolution-input input" id="resolution-1" value="16" name="resolution-width"
+              data-js-palette-resolution-input>
             <span>x</span>
-            <input type="number" class="palette__resolution-input input" value="16" data-js-palette-resolution-input>
+            <input type="number" class="palette__resolution-input input" value="16" name="resolution-height" data-js-palette-resolution-input>
           </div>
-          <label for="pixel-size">Размер пикселя:</label>
-          <input type="number" class="palette__pixel-size input" id="pixel-size" value="20" data-js-palette-resolution-pixel-size>
+          <label>Размер пикселя:
+            <input type="number" class="palette__pixel-size input" value="20"
+              data-js-palette-resolution-pixel-size>
+          </label>
         </div>
         <button class="controls__generate-button generate-button button" type="submit"
           data-js-generate-button>Сгенерировать</button>
