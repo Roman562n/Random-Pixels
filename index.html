@@ -16,7 +16,8 @@
 
     <div class="customize-menu" data-js-customize-menu>
       <h2 class="cusmomize-menu__title">Создание палитры</h2>
-      <form class="customize-menu__form">
+      <form class="customize-menu__form" name="palette-settings">
+        <input type="text" class="customize-menu__form-palette-name input" placeholder="Название палитры">
 
         <div class="customize-menu__form-select color-select">
 
@@ -38,21 +39,21 @@
     </div>
 
 
-    <div class="controls">
-      <form class="controls__form">
-        <select class="controls__form-select palette__select input" name="palette" id="" data-js-palette-select>
+    <div class="controls" data-js-controls>
+      <form class="controls__form" name="image-settings">
+        <select class="controls__form-select palette__select input" name="palette" data-js-palette-select>
           <option value="" class="palette__option" selected disabled>-- Выберите палитру цветов --</option>
         </select>
         <div class="palette__row">
           <div class="palette__resolution">
             <label for="resolution-1">Разрешение:</label>
-            <input type="number" class="palette__resolution-input input" id="resolution-1" value="16" name="resolution-width"
+            <input type="number" class="palette__resolution-input input" id="resolution-1" value="16" min="1" max="1000" name="resolution-width"
               data-js-palette-resolution-input>
             <span>x</span>
-            <input type="number" class="palette__resolution-input input" value="16" name="resolution-height" data-js-palette-resolution-input>
+            <input type="number" class="palette__resolution-input input" value="16" min="1" max="1000" name="resolution-height" data-js-palette-resolution-input>
           </div>
           <label>Размер пикселя:
-            <input type="number" class="palette__pixel-size input" value="20"
+            <input type="number" class="palette__pixel-size input" value="20" min="1" max="1000" name="pixel-size"
               data-js-palette-resolution-pixel-size>
           </label>
         </div>

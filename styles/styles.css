@@ -47,6 +47,16 @@ body {
   color: var(--color-light);
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  color: #929292;
+  box-shadow: var(--box-shadow-5);
+}
+
+.button:disabled:hover {
+  translate: 0 0;
+}
+
 .input {
   border: var(--border-2);
   background-color: var(--color-light);
