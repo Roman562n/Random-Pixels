@@ -8,57 +8,71 @@
 
   <link rel="stylesheet" href="/styles/normalize.css">
   <link rel="stylesheet" href="/styles/styles.css">
-  <script src="/main.js" defer></script>
+  <script src="/scripts/main.js" type="module"></script>
 </head>
 
-<body class="container">
+<body>
   <main class="content">
 
-    <div class="customize-menu" data-js-customize-menu>
+    <div class="customize-menu container" data-js-customize-menu>
       <h2 class="cusmomize-menu__title">Создание палитры</h2>
-      <form class="customize-menu__form" name="palette-settings">
-        <input type="text" class="customize-menu__form-palette-name input" placeholder="Название палитры">
+      <form class="customize-menu__form new-palette" name="palette_settings" method="post" data-js-new-palette>
+        <input type="text" class="new-palette__name input" placeholder="Название палитры" name="palette-name"
+          data-js-new-palette-name>
 
-        <div class="customize-menu__form-select color-select">
+        <div class="new-palette__colors colors">
 
-          <div class="color-select__inputs" data-js-color-select-inputs>
-            <input class="color-select__input" type="color">
+          <div class="colors__container" data-js-colors-container>
+            <input class="colors__input input" type="color" value="#000000">
           </div>
 
-          <button class="color-select__add-button button" type="button" title="Добавить цвет"
-            data-js-color-select-add-button>+</button>
+          <button class="colors__add-button button" type="button" title="Добавить цвет" aria-label="Добавить цвет"
+            data-js-colors-add-button>+</button>
         </div>
 
-        <div class="customize-menu__form-buttons">
-          <button class="customize-menu__cancel-button button" type="button"
-            data-js-customize-menu-cancel-button>Отмена</button>
-          <button class="customize-menu__save-button button" type="submit"
-            data-js-customize-menu-save-button>Сохранить</button>
+        <div class="new-palette__buttons">
+          <button class="new-palette__cancel-button button" type="reset"
+            data-js-new-palette-cancel-button>Отмена</button>
+          <button class="new-palette__save-button button" type="submit"
+            data-js-new-palette-save-button>Сохранить</button>
         </div>
       </form>
     </div>
 
 
-    <div class="controls" data-js-controls>
-      <form class="controls__form" name="image-settings">
-        <select class="controls__form-select palette__select input" name="palette" data-js-palette-select>
-          <option value="" class="palette__option" selected disabled>-- Выберите палитру цветов --</option>
-        </select>
-        <div class="palette__row">
-          <div class="palette__resolution">
-            <label for="resolution-1">Разрешение:</label>
-            <input type="number" class="palette__resolution-input input" id="resolution-1" value="16" min="1" max="1000" name="resolution-width"
-              data-js-palette-resolution-input>
+    <div class="controls container" data-js-controls>
+      <form class="controls__form settings" name="image-settings">
+        <div class="settings__row settings__row--2 palette">
+          <label class="palette__selector-label visually-hidden" for="palette-selector">Выберите палитру цветов</label>
+          <select class="palette__selector input" id="palette-selector" name="palette" data-js-palette-selector>
+            <option class="palette__option" value="" selected disabled>-- Выберите палитру цветов --</option>
+          </select>
+          <button class="palette__add-button button" type="button" title="Создать палитру" aria-label="Создать палитру"
+            data-js-palette-add-button>+</button>
+        </div>
+        <div class="settings__row">
+          <div class="settings__resolution">
+            <label for="resolution-width">Разрешение:
+              <span class="visually-hidden">Ширина</span>
+            </label>
+            <input type="number" class="settings__resolution-input input" id="resolution-width" value="16" min="1"
+              max="1000" name="resolution-width" data-js-settings-resolution-input>
             <span>x</span>
-            <input type="number" class="palette__resolution-input input" value="16" min="1" max="1000" name="resolution-height" data-js-palette-resolution-input>
+            <label class="settings__resolution-label visually-hidden" for="resolution-height">Высота</label>
+            <input type="number" class="settings__resolution-input input" id="resolution-height" value="16" min="1"
+              max="1000" name="resolution-height" data-js-settings-resolution-input>
           </div>
-          <label>Размер пикселя:
-            <input type="number" class="palette__pixel-size input" value="20" min="1" max="1000" name="pixel-size"
-              data-js-palette-resolution-pixel-size>
+          <label class="settings__pixel-size-label">Размер пикселя:
+            <input class="settings__pixel-size-input input" type="number" value="20" min="1" max="1000"
+              name="pixel-size" data-js-settings-pixel-size-input>
           </label>
         </div>
-        <button class="controls__generate-button generate-button button" type="submit"
-          data-js-generate-button>Сгенерировать</button>
+        <div class="settings__image-size">
+          Размер изображения: 
+          <span class="settings__image-width" data-js-image-width>?</span>&nbsp;px&nbsp;x&nbsp;<span class="settings__image-height" data-js-image-height>?</span>&nbsp;px
+        </div>
+        <button class="settings__image-generate-button generate-button button" type="submit"
+          data-js-image-generate-button>Сгенерировать</button>
       </form>
     </div>
     <canvas width="150" height="150" class="canvas" data-js-canvas></canvas>
